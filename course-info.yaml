@@ -1,0 +1,13 @@
+type: hyperskill
+title: Simple Bank Manager
+language: English
+summary: "<p>A banking app is a widespread kind of app that helps you manage your\
+  \ bank account and pay bills. In this project, you'll make a simplified version\
+  \ of such an application.</p><br/><br/>Learn more at <a href=\"https://hyperskill.org/projects/333?utm_source=ide&utm_medium=ide&utm_campaign=ide&utm_content=project-card\"\
+  >https://hyperskill.org/projects/333</a>"
+programming_language: Kotlin
+environment: Android
+content:
+  - Simple Bank Manager
+mode: Study
+yaml_version: 1

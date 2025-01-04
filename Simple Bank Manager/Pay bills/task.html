@@ -1,0 +1,48 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>In the last stage, let's implement the feature to pay bills using our bank manager application.</p>
+<p>After clicking on the <code class="java">Pay Bills</code> button in the <code class="java">User Menu</code>, redirect users to the <code class="java">Pay Bills</code> screen. There, users can input a billing code and correct it, if necessary, in a dialog. Users should have the option to confirm bill payments. Don't forget to add the validation to see if the user has enough money. If the validation is successful, subtract the money from the user's account.</p>
+<h5 id="objectives">Objectives</h5>
+<p> </p>
+<ol>
+<li>Add a fragment named <code class="java">PayBillsFragment</code> to the navigation graph:
+
+        <ul>
+<li>Add an <code class="java">EditText</code> to <code class="java">PayBillsFragment</code> with the ID of <code class="java">payBillsCodeInputEditText</code>, the hint should be <code class="java">Enter code</code> and <code class="java">inputType</code> is <code class="java">text</code>;</li>
+<li>Add a <code class="java">Button</code> to <code class="java">PayBillsFragment</code> with the ID of <code class="java">payBillsShowBillInfoButton</code> with the text <code class="java">Show bill info</code>;</li>
+</ul>
+</li>
+<li>On the design tab of <code class="java">nav_graph</code>, make a connection from <code class="java">UserMenuFragment</code> to <code class="java">PayBillsFragment</code>. The generated code should contain the action with the ID of <code class="java">action_userMenuFragment_to_payBillsFragment</code> and the destination <code class="java">payBillsFragment</code>;</li>
+<li>Display <code class="java">PayBillsFragment</code> after a click on the <code class="java">userMenuPayBillsButton</code> button;</li>
+<li>On <code class="java">PayBillsFragment</code> users should be able to input a billing code on <code class="java">payBillsCodeInputEditText</code></li>
+<li>After click on <code class="java">payBillsShowBillInfoButton</code>, a dialog should appear:
+        <ul>
+<li>If the billing code is not found in <code class="java">billInfoMap</code>, show an <code class="java">AlertDialog</code> with the title <code class="java">Error</code> and the message <code class="java">Wrong code</code> with a positive button with the text <code class="java">Ok</code>;</li>
+<li>If the billing code is found in <code class="java">billInfoMap</code>, show an <code class="java">AlertDialog</code> with the title <code class="java">Bill info</code>, a positive button with the text <code class="java">Confirm</code>, a negative button with the text <code class="java">Cancel</code>, and a message with the following scheme (including newlines):
+                <pre><code class="language-no-highlight">
+Name: $billName
+BillCode: $billCode
+Amount: $billAmount$
+                </code></pre>
+                where <code class="java">$billName</code>, <code class="java">$billCode</code>, and <code class="java">$billAmount</code> are placeholders; <code class="java">$billAmount</code> comes always with two decimals. If users click on the <code class="java">Confirm</code> button, and there is enough balance in the account, then subtract the billing amount from this account balance and show the toast message appears with text <code class="java">Payment for bill $billName, was successful</code>($billName is a variable name interpolated in this String message). If a user clicks on the <code class="java">Confirm</code> button, and there is not enough balance, close the current dialog and display a new <code class="java">AlertDialog</code> with the title <code class="java">Error</code>, the message <code class="java">Not enough funds</code> and a positive button with the text <code class="java">Ok</code>, which closes the dialog.</li>
+</ul>
+</li>
+<li>Tests may pass <code class="java">billInfoMap</code> as <code class="java">Serializable</code> to <code class="java">MainActivity</code> through <code class="java">intent.extras</code>. Retrieve that <code class="java">billInfoMap</code>, using the key <code class="java">"billInfo"</code>. You will want to cast it back to a map to use it as a map. The type signature of <code class="java">billInfoMap</code> is <code class="java">Map&lt;String, Triple&lt;String, String, Double&gt;&gt;</code>. In case of no <code class="java">billInfoMap</code>, use the following as the default value:<br/>
+<pre><code class="java">
+val defaultBillInfoMap = mapOf(
+    "ELEC" to Triple("Electricity", "ELEC", 45.0),
+    "GAS" to Triple("Gas", "GAS", 20.0),
+    "WTR" to Triple("Water", "WTR", 25.5)
+)</code></pre>
+        The keys are strings, and the values are instances of the <code class="java">Triple&lt;String, String, Double&gt;&gt;</code> class. The first sting in this triple is for <code class="java">billName</code>, the second string is for <code class="java">billCode</code>, and the double is for <code class="java">billAmount</code>;</li>
+<li>If users are on <code class="java">PayBillsFragment</code>, a click on the <code class="java">back</code> button should redirect users to <code class="java">UserMenuFragment</code>.</li>
+</ol>
+<h5 id="example">Example<br/>
+<picture><img alt="Implemented features" height="750" name="simpleBankManager_stage5a.gif" src="https://ucarecdn.com/cce61266-af0e-455d-a585-a6de66219d4a/" width="340"/></picture><br/>
+<br/>
+<br/>
+<picture><img alt="Bill payment with funds" height="750" name="simpleBankManager_stage5b.gif" src="https://ucarecdn.com/2d5a37f2-82a5-4382-8874-7da2b4209d58/" width="340"/></picture><br/>
+<br/>
+<br/>
+<picture><img alt="Bill payment without funds" height="750" name="simpleBankManager_stage5c.gif" src="https://ucarecdn.com/1c1ef556-035f-45a2-b1b4-d6fb62b5a822/" width="340"/></picture></h5>
+</div>

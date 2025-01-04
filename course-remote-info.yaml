@@ -1,0 +1,245 @@
+hyperskill_project:
+  id: 333
+  ide_files: https://hyperskill.org/api/projects/333/additional-files/additional_files.json
+  is_template_based: false
+  use_ide: true
+  environment: android
+update_date: "Thu, 01 Jan 1970 00:00:00 UTC"
+stages:
+  - id: 1868
+    step: 27105
+    is_completed: false
+  - id: 1869
+    step: 27106
+    is_completed: false
+  - id: 1870
+    step: 27107
+    is_completed: false
+  - id: 1871
+    step: 27108
+    is_completed: false
+  - id: 1872
+    step: 27109
+    is_completed: false
+topics:
+  0:
+    - title: Data structures
+      theory_id: 40371
+    - title: Abstract and concrete data structures
+      theory_id: 16927
+    - title: Introduction to UI/UX
+      theory_id: 14603
+    - title: Layout grids
+      theory_id: 14922
+    - title: Interface elements
+      theory_id: 15253
+    - title: Input fields and field labels
+      theory_id: 15447
+    - title: Fonts
+      theory_id: 15045
+    - title: Feedback
+      theory_id: 15308
+    - title: "Write, compile, and run"
+      theory_id: 3739
+    - title: "Basic terms: JVM, JRE, JDK"
+      theory_id: 3499
+    - title: Operating systems
+      theory_id: 9704
+    - title: Command line overview
+      theory_id: 8977
+    - title: Parameters and options
+      theory_id: 9746
+    - title: Stack
+      theory_id: 5252
+    - title: Fragments
+      theory_id: 12981
+    - title: Fragment communication and lifecycle
+      theory_id: 21929
+    - title: Navigation graph
+      theory_id: 34928
+    - title: Build tools
+      theory_id: 4284
+    - title: "Gradle: overview"
+      theory_id: 5075
+    - title: External resources
+      theory_id: 6216
+    - title: Android studio basics
+      theory_id: 11048
+    - title: API Levels
+      theory_id: 11312
+    - title: Introduction to Android
+      theory_id: 6331
+    - title: XML
+      theory_id: 6901
+    - title: Android Project Structure
+      theory_id: 10752
+    - title: AndroidManifest File
+      theory_id: 10762
+    - title: Resources
+      theory_id: 11087
+    - title: Values
+      theory_id: 11370
+    - title: XML Layouts
+      theory_id: 10997
+    - title: "Text, images, and buttons"
+      theory_id: 12918
+    - title: Toast
+      theory_id: 11973
+    - title: Event listeners
+      theory_id: 12822
+    - title: Intent
+      theory_id: 11965
+    - title: Activity
+      theory_id: 15455
+    - title: Tasks and back stack
+      theory_id: 16653
+    - title: "Starting Activities: intents in detail"
+      theory_id: 24801
+    - title: "Linear, Frame, Relative layouts"
+      theory_id: 11981
+  1:
+    - title: Code organization. Design principles
+      theory_id: 8956
+    - title: Single Responsibility Principle
+      theory_id: 8963
+  2:
+    - title: Introduction to Kotlin
+      theory_id: 4350
+    - title: "Basic literals: numbers, strings and characters"
+      theory_id: 4351
+    - title: Writing first program
+      theory_id: 4362
+    - title: Values and variables
+      theory_id: 4371
+    - title: Constants and val variables
+      theory_id: 17408
+    - title: Data types
+      theory_id: 4388
+    - title: Comments
+      theory_id: 4406
+    - title: Kotlin style guide. Coding conventions
+      theory_id: 4419
+    - title: Naming variables
+      theory_id: 4389
+    - title: Standard output
+      theory_id: 4425
+    - title: Invoking functions
+      theory_id: 4575
+    - title: Standard input with Java Scanner
+      theory_id: 4445
+    - title: String basics
+      theory_id: 12553
+    - title: String templates
+      theory_id: 4547
+    - title: Boolean type and operations. True and false
+      theory_id: 4515
+    - title: Arithmetic operations
+      theory_id: 4472
+    - title: Increment and decrement
+      theory_id: 10776
+    - title: Properties of basic types
+      theory_id: 4455
+    - title: Type conversion
+      theory_id: 4672
+    - title: Reading data with readln
+      theory_id: 11224
+    - title: "When different types meet: type coercion"
+      theory_id: 9506
+    - title: Integers in action
+      theory_id: 4488
+    - title: Comparing numbers. Relational operators
+      theory_id: 4525
+    - title: Declaring functions
+      theory_id: 4580
+    - title: If expression
+      theory_id: 4625
+    - title: Errors in programs
+      theory_id: 11559
+    - title: Nullable and non-nullable types
+      theory_id: 7613
+    - title: Type system
+      theory_id: 9689
+    - title: "Loops: repeat statement"
+      theory_id: 4643
+    - title: While loops
+      theory_id: 4659
+    - title: Objects and their properties
+      theory_id: 11233
+    - title: Ranges
+      theory_id: 4633
+    - title: When expression
+      theory_id: 4631
+    - title: Functional decomposition
+      theory_id: 12668
+    - title: Default arguments
+      theory_id: 4637
+    - title: Named arguments
+      theory_id: 4640
+    - title: What is object-oriented programming
+      theory_id: 3614
+    - title: Declaring classes
+      theory_id: 6200
+    - title: Constructors
+      theory_id: 10740
+    - title: Member functions
+      theory_id: 6364
+    - title: Call stack
+      theory_id: 11550
+    - title: Scopes
+      theory_id: 17116
+    - title: Nested and inner classes
+      theory_id: 14723
+    - title: Interfaces
+      theory_id: 9640
+    - title: Concept of design patterns
+      theory_id: 3611
+    - title: Inheritance
+      theory_id: 9844
+    - title: Inheritance
+      theory_id: 7770
+    - title: Polymorphism
+      theory_id: 10027
+    - title: Overriding functions
+      theory_id: 7884
+    - title: Introduction to Interfaces
+      theory_id: 18222
+    - title: Interface inheritance
+      theory_id: 20218
+    - title: Delegate
+      theory_id: 21405
+    - title: Introduction to software architecture
+      theory_id: 15368
+    - title: Object declarations
+      theory_id: 10698
+    - title: Interface Segregation Principle
+      theory_id: 10089
+    - title: Interface composition
+      theory_id: 22091
+    - title: Open/Closed Principle
+      theory_id: 9291
+    - title: Exception
+      theory_id: 7243
+    - title: Hierarchy of exceptions
+      theory_id: 13264
+    - title: Taming exceptions
+      theory_id: 7601
+    - title: Avoiding NPEs. Null safety
+      theory_id: 7619
+    - title: Creational design patterns
+      theory_id: 16251
+    - title: Singleton
+      theory_id: 16469
+    - title: Structural design patterns
+      theory_id: 17649
+    - title: Proxy pattern
+      theory_id: 25220
+  3:
+    - title: Type cast and smart cast
+      theory_id: 26453
+    - title: Spinners
+      theory_id: 29465
+    - title: Adapter pattern
+      theory_id: 17657
+  4:
+    - title: AlertDialog
+      theory_id: 12330

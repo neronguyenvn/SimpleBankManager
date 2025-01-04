@@ -1,0 +1,52 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>In this stage, we will implement a feature to calculate the exchange rate. When a user successfully logins, they should be able to go to the <em>Calculate Exchange</em> screen, where they can select the currencies, enter an amount to convert, and start the conversion by clicking a button. The converted amount will be displayed in a text view.</p>
+<h5 id="objectives">Objectives</h5>
+<ol>
+<li>Add a Fragment named <code class="java">CalculateExchangeFragment</code> to the navigation graph:
+
+        <ul>
+<li>Add a <code class="java">TextView</code> to <code class="java">CalculateExchangeFragment</code> with the ID of <code class="java">calculateExchangeLabelFromTextView</code>, the text should be <code class="java">convert from</code>;</li>
+<li>Add a <code class="java">TextView</code> to <code class="java">CalculateExchangeFragment</code> with the ID of <code class="java">calculateExchangeLabelToTextView</code>, the text should be <code class="java">convert to</code>;</li>
+<li>Add a <code class="java">Spinner</code> to <code class="java">CalculateExchangeFragment</code> with the ID of <code class="java">calculateExchangeFromSpinner</code>, the spinner should contain this text in the dropdown: <code class="java">EUR</code>, <code class="java">GBP</code>, <code class="java">USD</code>;</li>
+<li>Add a <code class="java">Spinner</code> to <code class="java">CalculateExchangeFragment</code> with the ID of <code class="java">calculateExchangeToSpinner</code>, the spinner should contain this text in the dropdown: <code class="java">EUR</code>, <code class="java">GBP</code>, <code class="java">USD</code>;</li>
+<li>Add a <code class="java">TextView</code> to <code class="java">CalculateExchangeFragment</code> with the ID of <code class="java">calculateExchangeDisplayTextView</code>, this <code class="java">textView</code> will be used to show the calculated amount to two decimal points;</li>
+<li>Add an <code class="java">EditText</code> to <code class="java">CalculateExchangeFragment</code> with the ID of <code class="java">calculateExchangeAmountEditText</code>. It should accept the <code class="java">numberDecimal</code>input type and have the following hint: <code class="java">Enter amount</code>;</li>
+<li>Add a <code class="java">Button</code> to <code class="java">CalculateExchangeFragment</code> with the ID of <code class="java">calculateExchangeButton</code> and with the text <code class="java">calculate</code>;</li>
+</ul>
+</li>
+<li>On the design tab of <code class="java">nav_graph</code>, make a connection from <code class="java">UserMenuFragment</code> to <code class="java">CalculateExchangeFragment</code>. The generated code after making the connection should contain the action with the ID <code class="java">action_userMenuFragment_to_calculateExchangeFragment</code> and the destination <code class="java">calculateExchangeFragment</code>;</li>
+<li>After clicking on <code class="java">userMenuExchangeCalculatorButton</code>, display <code class="java">CalculateExchangeFragment</code>. Users should be able to choose the currency using <code class="java">calculateExchangeFromSpinner</code> and <code class="java">calculateExchangeToSpinner</code>. Input the amount to convert at <code class="java">calculateExchangeAmountEditText</code>, and confirm conversion with the button <code class="java">calculateExchangeButton</code>;</li>
+<li>Tests may pass the <code class="java">exchangeMap</code> as <code class="java">Serializable</code> to <code class="java">MainActivity</code> through <code class="java">intent.extras</code>. Retrieve that <code class="java">exchangeMap</code>, using <code class="java">intent.extras?.getSerializable</code> and the key <code class="java">"exchangeMap"</code>. Cast it back to a map to be able to use it as a map. The type signature of <code class="java">exchangeMap</code> is <code class="java">Map&lt;String, Map&lt;String, Double&gt;&gt;</code>. In case no <code class="java">exchangeMap</code> is passed, use the following as the default value:
+        <pre><code class="java">
+val defaultMap = mapOf(
+    "EUR" to mapOf(
+        "GBP" to 0.5,
+        "USD" to 2.0
+    ),
+    "GBP" to mapOf(
+        "EUR" to 2.0,
+        "USD" to 4.0
+    ),
+    "USD" to mapOf(
+        "EUR" to 0.5,
+        "GBP" to 0.25
+    )
+)
+        </code></pre>
+        The outer key of exchangeMap is the source currency from which we are converting and the inner key is the target currency to convert to;</li>
+<li>If users select the same currency on both <code class="java">calculateExchangeFromSpinner</code> and <code class="java">calculateExchangeToSpinner</code>, show the toast message <code class="java">Cannot convert to same currency</code> and replace currency at <code class="java">calculateExchangeToSpinner</code> with the next available currency;</li>
+<li>If no value is passed to <code class="java">calculateExchangeAmountEditText</code> and the button <code class="java">calculateExchangeButton</code> is clicked, show the toast message <code class="java">Enter amount</code>;</li>
+<li>If users click on the <code class="java">back</code> button at <code class="java">CalculateExchangeFragment</code>, redirect users to <code class="java">UserMenuFragment</code>;</li>
+<li>Amount should be formatted with 2 decimal places and a currency symbol of selected currency before amount, for USD -&gt; $, EUR -&gt; € and for GBP -&gt; £.
+         Example: $10.50 = €5.25;</li>
+</ol>
+<h5 id="example">Example<br/>
+<picture><img alt="Implemented features" height="750" name="simpleBankManager_stage4a.gif" src="https://ucarecdn.com/87ac4b02-60b6-4c76-ae10-5933c5a5a214/" width="340"/></picture><br/>
+<br/>
+<br/>
+<picture><img alt="Selecting same currency" height="600" name="simpleBankManager_stage4b.gif" src="https://ucarecdn.com/12e96184-79fd-4633-b120-f883e1d2f1ca/" width="340"/></picture><br/>
+<br/>
+<br/>
+<picture><img alt="Calculating exchange" height="750" name="simpleBankManager_stage4c.gif" src="https://ucarecdn.com/ab6aca69-1566-42e4-94de-7a7b799c2cb5/" width="340"/></picture></h5>
+</div>

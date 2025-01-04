@@ -1,0 +1,21 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>Previously, we handled the login. In this stage, we want to redirect users to the menu screen after a successful login where they can reach the main features offered by our app.</p>
+<p>The navigation graph will help us to implement the navigation between the screen of our app.</p>
+<p>When navigating from one fragment to another using the navigate method, you can pass data between the fragments by providing a Bundle as the second argument. In the Bundle, you can put any data you want to pass to the destination fragment, such as a string, integer, or even a custom object.
+  To retrieve the data in the destination fragment, you can use the arguments property, which returns the Bundle that was passed during navigation. You can then use the getString(), getInt(), or other methods of the Bundle class to extract the data from the Bundle.</p>
+<h5 id="objectives">Objectives</h5>
+<ol>
+<li>Add a fragment named <code class="java">UserMenuFragment</code> to the navigation graph;</li>
+<li>Add a <code class="java">TextView</code> to <code class="java">UserMenuFragment</code> with the id of <code class="java">userMenuWelcomeTextView</code>, the text should be <code class="java">"Welcome $username"</code> in which <code class="java">$username</code> is the same username used for login;</li>
+<li>Add a <code class="java">Button</code> to <code class="java">UserMenuFragment</code> with the id of <code class="java">userMenuViewBalanceButton</code> and <code class="java">text</code> <code class="java">view balance</code>;</li>
+<li>Add a <code class="java">Button</code> to <code class="java">UserMenuFragment</code> with the id of <code class="java">userMenuTransferFundsButton</code> and <code class="java">text</code> <code class="java">transfer funds</code>;</li>
+<li>Add a <code class="java">Button</code> to <code class="java">UserMenuFragment</code> with the id of <code class="java">userMenuExchangeCalculatorButton</code> and <code class="java">text</code> <code class="java">calculate exchange</code>;</li>
+<li>Add a <code class="java">Button</code> to <code class="java">UserMenuFragment</code> with the id of <code class="java">userMenuPayBillsButton</code> and <code class="java">text</code> <code class="java">pay bills</code>;</li>
+<li>On the design tab of <code class="java">nav_graph</code>, make a connection from <code class="java">LoginFragment</code> to <code class="java">UserMenuFragment</code>. The code generated after making the connection should contain an action with the id of <code class="java">action_loginFragment_to_userMenuFragment</code> and destination <code class="java">userMenuFragment</code></li>
+<li>After a successful login, users should be redirected to <code class="java">UserMenuFragment</code>. To make the navigation, you can use <code class="java">findNavController().navigate(R.id.action_loginFragment_to_userMenuFragment)</code>. It is also possible to pass a <code class="java">Bundle</code> as the second argument of the navigate method to pass arguments to <code class="java">userMenuFragment</code>, which you can later retrieve with <code class="java">arguments?.getString(...)</code></li>
+<li>All requirements from the Stage1 are still valid, including toast messages</li>
+</ol>
+<h5 id="example">Example<br/>
+<picture><img alt="Navigation from login to user menu" height="600" name="simpleBankManager_stage2.gif" src="https://ucarecdn.com/d8ca7a43-3ef1-45de-974d-6c2283efc97e/" width="340"/></picture></h5>
+</div>

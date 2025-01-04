@@ -1,0 +1,8 @@
+type: framework
+content:
+  - Create LogIn screen
+  - Main menu with features
+  - View balance and make transfers
+  - Convert currencies
+  - Pay bills
+current_task: 0
