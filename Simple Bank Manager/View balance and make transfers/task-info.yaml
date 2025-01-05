@@ -87,6 +87,15 @@ files:
   - name: src/main/java/org/hyperskill/simplebankmanager/presentation/UserMenuFragment.kt
     visible: true
     learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/balance/ViewBalanceFragment.kt
+    visible: true
+    learner_created: true
+  - name: src/main/res/layout/fragment_view_balance.xml
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/balance/BalanceViewModel.kt
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/27107#comment
 status: Unchecked
 record: 3

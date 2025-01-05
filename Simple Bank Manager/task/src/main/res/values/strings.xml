@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Simple Bank Manager</string>
     <string name="welcome_s">Welcome %s</string>
+    <string name="balance_amount_f">$%.2f</string>
 </resources>
