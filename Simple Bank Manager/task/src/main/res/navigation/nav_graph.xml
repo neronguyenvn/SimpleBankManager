@@ -19,10 +19,17 @@
         <action
             android:id="@+id/action_userMenuFragment_to_viewBalanceFragment"
             app:destination="@id/viewBalanceFragment" />
+        <action
+            android:id="@+id/action_userMenuFragment_to_transferFundsFragment"
+            app:destination="@id/transferFundsFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/viewBalanceFragment"
-        android:name="org.hyperskill.simplebankmanager.presentation.balance.ViewBalanceFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.ViewBalanceFragment"
         android:label="ViewBalanceFragment" />
+    <fragment
+        android:id="@+id/transferFundsFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.transferfunds.TransferFundsFragment"
+        android:label="TransferFundsFragment" />
 </navigation>

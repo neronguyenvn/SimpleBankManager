@@ -1,4 +1,4 @@
-package org.hyperskill.simplebankmanager.presentation
+package org.hyperskill.simplebankmanager.util
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner

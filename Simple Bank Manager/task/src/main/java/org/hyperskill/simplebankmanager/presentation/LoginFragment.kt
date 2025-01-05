@@ -11,15 +11,16 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import org.hyperskill.simplebankmanager.MainActivityViewModel
+import org.hyperskill.simplebankmanager.MainActivityViewModel.UiEvent
 import org.hyperskill.simplebankmanager.R
 import org.hyperskill.simplebankmanager.databinding.FragmentLoginBinding
-import org.hyperskill.simplebankmanager.domain.User
-import org.hyperskill.simplebankmanager.presentation.LoginViewModel.UiEvent
+import org.hyperskill.simplebankmanager.util.launchOnLifecycleState
 
 class LoginFragment : Fragment() {
 
     private val binding by lazy { FragmentLoginBinding.inflate(layoutInflater) }
-    private val viewModel by activityViewModels<LoginViewModel>()
+    private val viewModel by activityViewModels<MainActivityViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,11 +32,10 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.loginButton.setOnClickListener {
-            val user = User(
+            viewModel.login(
                 username = binding.loginUsername.text.toString(),
                 password = binding.loginPassword.text.toString()
             )
-            viewModel.login(user)
         }
 
         viewLifecycleOwner.launchOnLifecycleState {

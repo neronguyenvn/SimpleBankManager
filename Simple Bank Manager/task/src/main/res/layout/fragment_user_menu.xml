@@ -11,15 +11,12 @@
         android:id="@+id/userMenuWelcomeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:letterSpacing="0.15"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
         tools:text="Welcome Lara" />
-
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp" />
 
     <Button
         android:id="@+id/userMenuViewBalanceButton"

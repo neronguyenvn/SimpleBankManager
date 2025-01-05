@@ -8,28 +8,27 @@
     android:paddingHorizontal="32dp">
 
     <EditText
-        android:id="@+id/loginUsername"
+        android:id="@+id/transferFundsAccountEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="username"
+        android:hint="Account number"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
+        android:inputType="text"
         tools:ignore="HardcodedText" />
 
     <EditText
-        android:id="@+id/loginPassword"
+        android:id="@+id/transferFundsAmountEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="password"
+        android:hint="Enter amount"
         android:importantForAutofill="no"
-        android:inputType="numberPassword"
+        android:inputType="numberDecimal"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/transferFundsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="log in"
+        android:text="transfer"
         tools:ignore="HardcodedText" />
 </LinearLayout>
