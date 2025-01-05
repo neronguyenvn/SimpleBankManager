@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="org.hyperskill.simplebankmanager.presentation.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_userMenuFragment"
+            app:destination="@id/userMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userMenuFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.UserMenuFragment"
+        android:label="UserMenuFragment" />
 </navigation>

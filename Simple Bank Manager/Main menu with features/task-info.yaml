@@ -72,9 +72,15 @@ files:
   - name: src/test/java/org/hyperskill/simplebankmanager/Stage2UnitTest.kt
     visible: true
     learner_created: true
+  - name: src/main/res/layout/fragment_user_menu.xml
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/UserMenuFragment.kt
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/27106#comment
-status: Failed
+status: Solved
 feedback:
-  message: View with id &quot;userMenuWelcomeTextView&quot; was not found
-  time: "Sun, 05 Jan 2025 06:40:54 UTC"
+  message: Congratulations!
+  time: "Sun, 05 Jan 2025 07:40:27 UTC"
 record: 2

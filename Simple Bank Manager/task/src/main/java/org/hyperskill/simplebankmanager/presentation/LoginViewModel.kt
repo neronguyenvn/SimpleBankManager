@@ -19,6 +19,8 @@ class LoginViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         .let { if (it.isNullOrEmpty()) "1234" else it }
 
     private val _uiEvent = Channel<UiEvent>()
+    private var _currentUser: User? = null
+
     val uiEvent = _uiEvent.receiveAsFlow()
 
     fun login(user: User) {
@@ -27,9 +29,12 @@ class LoginViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 _uiEvent.send(UiEvent.ShowLoginResult(false))
                 return@launch
             }
+            _currentUser = user
             _uiEvent.send(UiEvent.ShowLoginResult(true))
         }
     }
+
+    fun getCurrentUser() = _currentUser
 
     sealed interface UiEvent {
         data class ShowLoginResult(val isSuccessful: Boolean) : UiEvent
