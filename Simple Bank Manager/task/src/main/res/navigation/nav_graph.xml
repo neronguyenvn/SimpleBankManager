@@ -30,6 +30,6 @@
         android:label="ViewBalanceFragment" />
     <fragment
         android:id="@+id/transferFundsFragment"
-        android:name="org.hyperskill.simplebankmanager.presentation.transferfunds.TransferFundsFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.TransferFundsFragment"
         android:label="TransferFundsFragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package org.hyperskill.simplebankmanager.presentation.transferfunds
+package org.hyperskill.simplebankmanager.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater

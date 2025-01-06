@@ -24,10 +24,10 @@ class ViewBalanceFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setupBalance()
+        setupCurrentBalance()
     }
 
-    private fun setupBalance() {
+    private fun setupCurrentBalance() {
         binding.viewBalanceAmountTextView.text = getString(
             R.string.balance_amount_f, viewModel.currentUser!!.balance
         )
