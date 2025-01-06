@@ -34,6 +34,10 @@ class TransferFundsFragment : Fragment() {
         transferFundsButton.setOnClickListener {
             val accountNumber = transferFundsAccountEditText.text.toString()
             val amount = transferFundsAmountEditText.text.toString().toDoubleOrNull()
+
+            transferFundsAccountEditText.error = null
+            transferFundsAmountEditText.error = null
+
             val transaction = TransferFundsTransaction(
                 accountNumber = accountNumber,
                 amount = amount
@@ -41,25 +45,12 @@ class TransferFundsFragment : Fragment() {
             val validateTransactionResult = ValidateTransferFundsTransactionUseCase().invoke(
                 transaction = transaction
             )
-            transferFundsAccountEditText.error = null
-            transferFundsAmountEditText.error = null
+
             validateTransactionResult.onFailure { error ->
-                when (error) {
-                    is InvalidAccountNumberAndAmount -> {
-                        transferFundsAccountEditText.error = "Invalid account number"
-                        transferFundsAmountEditText.error = "Invalid amount"
-                    }
-
-                    is InvalidAccountNumber -> {
-                        transferFundsAccountEditText.error = "Invalid account number"
-                    }
-
-                    is InvalidAmount -> {
-                        transferFundsAmountEditText.error = "Invalid amount"
-                    }
-                }
+                handleTransactionValidationError(error)
                 return@setOnClickListener
             }
+
             val currentBalance = mainActivityViewModel.currentUser!!.balance
             if (currentBalance < transaction.amount!!) {
                 val message = "Not enough funds to transfer ${
@@ -71,6 +62,7 @@ class TransferFundsFragment : Fragment() {
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
             mainActivityViewModel.transferFunds(transaction)
             val message = "Transferred ${
                 getString(
@@ -80,6 +72,23 @@ class TransferFundsFragment : Fragment() {
             } to account ${transaction.accountNumber}"
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             findNavController().popBackStack()
+        }
+    }
+
+    private fun handleTransactionValidationError(error: Throwable) = with(binding) {
+        when (error) {
+            is InvalidAccountNumberAndAmount -> {
+                transferFundsAccountEditText.error = getString(R.string.error_invalid_account)
+                transferFundsAmountEditText.error = getString(R.string.error_invalid_amount)
+            }
+
+            is InvalidAccountNumber -> {
+                transferFundsAccountEditText.error = getString(R.string.error_invalid_account)
+            }
+
+            is InvalidAmount -> {
+                transferFundsAmountEditText.error = getString(R.string.error_invalid_amount)
+            }
         }
     }
 }
