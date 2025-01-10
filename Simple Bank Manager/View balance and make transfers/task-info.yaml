@@ -96,9 +96,6 @@ files:
   - name: src/main/res/layout/fragment_transfer_funds.xml
     visible: true
     learner_created: true
-  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/transferfunds/TransferFundsFragment.kt
-    visible: true
-    learner_created: true
   - name: src/main/java/org/hyperskill/simplebankmanager/domain/TransferFundsTransaction.kt
     visible: true
     learner_created: true
