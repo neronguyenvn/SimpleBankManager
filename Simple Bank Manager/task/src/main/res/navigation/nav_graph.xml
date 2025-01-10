@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_userMenuFragment_to_transferFundsFragment"
             app:destination="@id/transferFundsFragment" />
+        <action
+            android:id="@+id/action_userMenuFragment_to_calculateExchangeFragment"
+            app:destination="@id/calculateExchangeFragment" />
     </fragment>
 
     <fragment
@@ -32,4 +35,8 @@
         android:id="@+id/transferFundsFragment"
         android:name="org.hyperskill.simplebankmanager.presentation.TransferFundsFragment"
         android:label="TransferFundsFragment" />
+    <fragment
+        android:id="@+id/calculateExchangeFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.CalculateExchangeFragment"
+        android:label="CalculateExchangeFragment" />
 </navigation>

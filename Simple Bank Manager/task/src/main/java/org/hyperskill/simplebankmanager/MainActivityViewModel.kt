@@ -19,6 +19,10 @@ class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         .get<String>("password")
         .let { if (it.isNullOrEmpty()) DEFAULT_PASSWORD else it }
 
+    private val exchangeMap = savedStateHandle
+        .get<Map<String, Map<String, Double>>>("exchangeMap")
+        ?: defaultMap
+    
     private val balance: Double = savedStateHandle.get<Double>("balance") ?: DEFAULT_BALANCE
     private val _uiEvent = Channel<UiEvent>()
 
@@ -60,5 +64,20 @@ class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         private const val DEFAULT_USERNAME = "Lara"
         private const val DEFAULT_PASSWORD = "1234"
         private const val DEFAULT_BALANCE = 100.0
+
+        private val defaultMap = mapOf(
+            "EUR" to mapOf(
+                "GBP" to 0.5,
+                "USD" to 2.0
+            ),
+            "GBP" to mapOf(
+                "EUR" to 2.0,
+                "USD" to 4.0
+            ),
+            "USD" to mapOf(
+                "EUR" to 0.5,
+                "GBP" to 0.25
+            )
+        )
     }
 }

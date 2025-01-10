@@ -6,4 +6,10 @@
 
     <string name="error_invalid_account">Invalid account number</string>
     <string name="error_invalid_amount">Invalid amount</string>
+
+    <string-array name="currencies_array">
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>USD</item>
+    </string-array>
 </resources>

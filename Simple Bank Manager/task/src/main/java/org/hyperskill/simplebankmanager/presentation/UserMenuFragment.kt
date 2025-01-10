@@ -44,5 +44,9 @@ class UserMenuFragment : Fragment() {
             val destination = R.id.action_userMenuFragment_to_transferFundsFragment
             findNavController().navigate(destination)
         }
+        userMenuExchangeCalculatorButton.setOnClickListener {
+            val destination = R.id.action_userMenuFragment_to_calculateExchangeFragment
+            findNavController().navigate(destination)
+        }
     }
 }
