@@ -7,12 +7,15 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import org.hyperskill.simplebankmanager.MainActivityViewModel
 import org.hyperskill.simplebankmanager.R
 import org.hyperskill.simplebankmanager.databinding.FragmentCalculateExchangeBinding
 
 class CalculateExchangeFragment : Fragment() {
 
     private val binding by lazy { FragmentCalculateExchangeBinding.inflate(layoutInflater) }
+    private val viewModel by viewModels<MainActivityViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +40,8 @@ class CalculateExchangeFragment : Fragment() {
         binding.calculateExchangeButton.setOnClickListener {
             calculateExchange()
         }
+
+
     }
 
     private fun calculateExchange() = with(binding) {
@@ -53,12 +58,35 @@ class CalculateExchangeFragment : Fragment() {
             return@with
         }
 
-        val exchangeAmount = calculateExchangeAmountEditText.text.toString()
-        if (exchangeAmount.isBlank()) {
+        val exchangeAmount = calculateExchangeAmountEditText.text.toString().toDoubleOrNull()
+        if (exchangeAmount == null) {
             Toast.makeText(context, "Enter amount", Toast.LENGTH_SHORT).show()
             return@with
         }
 
+        val fromUnit = calculateExchangeFromSpinner.selectedItem.toString()
+        val toUnit = calculateExchangeToSpinner.selectedItem.toString()
+        val exchangedAmount = viewModel.exchangeMoney(
+            amount = exchangeAmount,
+            fromUnit = fromUnit,
+            toUnit = toUnit
+        )
 
+        val fromUnitText = when (fromUnit) {
+            "USD" -> getString(R.string.usd_f, exchangeAmount)
+            "EUR" -> getString(R.string.eur_f, exchangeAmount)
+            "GBP" -> getString(R.string.gbp_f, exchangeAmount)
+            else -> error("")
+        }
+        val toUnitText = when (toUnit) {
+            "USD" -> getString(R.string.usd_f, exchangedAmount)
+            "EUR" -> getString(R.string.eur_f, exchangedAmount)
+            "GBP" -> getString(R.string.gbp_f, exchangedAmount)
+            else -> error("")
+        }
+        calculateExchangeDisplayTextView.text = String.format(
+            "%s = %s",
+            fromUnitText, toUnitText
+        )
     }
 }

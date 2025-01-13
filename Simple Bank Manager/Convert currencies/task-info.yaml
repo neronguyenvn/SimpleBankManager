@@ -118,5 +118,10 @@ files:
     visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/27108#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: "Exception, when same currency selected at CalculateExchange test failed\
+    \ on activity execution with java.lang.ArrayIndexOutOfBoundsException: Index 3\
+    \ out of bounds for length 3"
+  time: "Mon, 13 Jan 2025 10:54:22 UTC"
 record: -1

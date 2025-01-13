@@ -12,4 +12,8 @@
         <item>GBP</item>
         <item>USD</item>
     </string-array>
+
+    <string name="usd_f">$%.2f</string>
+    <string name="eur_f">€%.2f</string>
+    <string name="gbp_f">£%.2f</string>
 </resources>

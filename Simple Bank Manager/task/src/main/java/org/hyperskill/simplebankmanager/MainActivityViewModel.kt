@@ -22,7 +22,7 @@ class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val exchangeMap = savedStateHandle
         .get<Map<String, Map<String, Double>>>("exchangeMap")
         ?: defaultMap
-    
+
     private val balance: Double = savedStateHandle.get<Double>("balance") ?: DEFAULT_BALANCE
     private val _uiEvent = Channel<UiEvent>()
 
@@ -54,6 +54,14 @@ class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         currentUser = currentUser!!.copy(
             balance = currentUser!!.balance - transaction.amount!!
         )
+    }
+
+    fun exchangeMoney(
+        amount: Double,
+        fromUnit: String,
+        toUnit: String
+    ): Double {
+        return amount * exchangeMap[fromUnit]!![toUnit]!!
     }
 
     sealed interface UiEvent {
