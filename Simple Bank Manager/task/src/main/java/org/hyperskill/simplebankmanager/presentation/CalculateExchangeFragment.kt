@@ -13,6 +13,7 @@ import androidx.fragment.app.activityViewModels
 import org.hyperskill.simplebankmanager.MainActivityViewModel
 import org.hyperskill.simplebankmanager.R
 import org.hyperskill.simplebankmanager.databinding.FragmentCalculateExchangeBinding
+import org.hyperskill.simplebankmanager.util.showShortToast
 
 class CalculateExchangeFragment : Fragment() {
 
@@ -28,77 +29,53 @@ class CalculateExchangeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        ArrayAdapter.createFromResource(
+        setupSpinnerAdapters()
+        binding.calculateExchangeToSpinner.setSelection(1)
+        setupButtonClickedListeners()
+        setupOnSpinnerItemSelectedListeners()
+    }
+
+    private fun setupOnSpinnerItemSelectedListeners() = with(binding) {
+        val listener = object : OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>, view: View?, position: Int, id: Long
+            ) {
+                if (calculateExchangeFromSpinner.selectedItemPosition !=
+                    calculateExchangeToSpinner.selectedItemPosition
+                ) {
+                    return
+                }
+                context?.showShortToast(
+                    getString(R.string.error_cannot_convert_same_currency)
+                )
+                val nextPosition = (position + 1) % parent.count
+                calculateExchangeToSpinner.setSelection(nextPosition)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) = Unit
+        }
+
+        calculateExchangeFromSpinner.onItemSelectedListener = listener
+        calculateExchangeToSpinner.onItemSelectedListener = listener
+    }
+
+    private fun setupButtonClickedListeners() = with(binding) {
+        calculateExchangeButton.setOnClickListener {
+            calculateExchange()
+        }
+    }
+
+    private fun setupSpinnerAdapters() = with(binding) {
+        val adapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.currencies_array,
             android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.calculateExchangeFromSpinner.adapter = adapter
-            binding.calculateExchangeToSpinner.adapter = adapter
+        ).also {
+            it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         }
 
-        binding.calculateExchangeToSpinner.setSelection(1)
-        binding.calculateExchangeButton.setOnClickListener {
-            calculateExchange()
-        }
-
-        binding.calculateExchangeFromSpinner.onItemSelectedListener =
-            object : OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    val toSelectedIndex = binding.calculateExchangeToSpinner.selectedItemPosition
-
-                    if (position == toSelectedIndex) {
-                        Toast.makeText(
-                            context,
-                            "Cannot convert to same currency",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                        val nextToSelectedIndex =
-                            if (toSelectedIndex + 1 > binding.calculateExchangeToSpinner.adapter.count) 0
-                            else toSelectedIndex + 1
-
-                        binding.calculateExchangeToSpinner.setSelection(nextToSelectedIndex)
-                    }
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) = Unit
-            }
-
-        binding.calculateExchangeToSpinner.onItemSelectedListener =
-            object : OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    val fromSelectedIndex =
-                        binding.calculateExchangeFromSpinner.selectedItemPosition
-
-                    if (position == fromSelectedIndex) {
-                        Toast.makeText(
-                            context,
-                            "Cannot convert to same currency",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                        val nextToSelectedIndex =
-                            if (position + 1 >= binding.calculateExchangeToSpinner.adapter.count) 0
-                            else position + 1
-
-                        binding.calculateExchangeToSpinner.setSelection(nextToSelectedIndex)
-                    }
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) = Unit
-            }
+        calculateExchangeFromSpinner.adapter = adapter
+        calculateExchangeToSpinner.adapter = adapter
     }
 
     private fun calculateExchange() = with(binding) {

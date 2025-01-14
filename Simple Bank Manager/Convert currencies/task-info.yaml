@@ -75,6 +75,12 @@ files:
   - name: src/main/java/org/hyperskill/simplebankmanager/presentation/UserMenuFragment.kt
     visible: true
     learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/CalculateExchangeFragment.kt
+    visible: true
+    learner_created: true
+  - name: src/main/res/layout/fragment_calculate_exchange.xml
+    visible: true
+    learner_created: true
   - name: src/main/java/org/hyperskill/simplebankmanager/util/ResultExts.kt
     visible: true
     learner_created: true
@@ -99,6 +105,9 @@ files:
   - name: src/main/res/layout/fragment_view_balance.xml
     visible: true
     learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/TransferFundsFragment.kt
+    visible: true
+    learner_created: true
   - name: src/main/res/layout/fragment_login.xml
     visible: true
     learner_created: true
@@ -111,15 +120,12 @@ files:
   - name: src/main/java/org/hyperskill/simplebankmanager/domain/User.kt
     visible: true
     learner_created: true
-  - name: src/main/res/layout/fragment_calculate_exchange.xml
-    visible: true
-    learner_created: true
-  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/CalculateExchangeFragment.kt
+  - name: src/main/java/org/hyperskill/simplebankmanager/util/ContextExts.kt
     visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/27108#comment
 status: Solved
 feedback:
   message: Congratulations!
-  time: "Tue, 14 Jan 2025 04:55:56 UTC"
+  time: "Tue, 14 Jan 2025 17:19:44 UTC"
 record: -1
