@@ -61,7 +61,9 @@ class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         fromUnit: String,
         toUnit: String
     ): Double {
-        return amount * exchangeMap[fromUnit]!![toUnit]!!
+        val rate = exchangeMap[fromUnit]?.get(toUnit)
+        requireNotNull(rate) { "Exchange rate not found for $fromUnit to $toUnit" }
+        return amount * rate
     }
 
     sealed interface UiEvent {
