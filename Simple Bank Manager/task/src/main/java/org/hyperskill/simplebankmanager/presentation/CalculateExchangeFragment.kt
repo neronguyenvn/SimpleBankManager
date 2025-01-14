@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import org.hyperskill.simplebankmanager.MainActivityViewModel
 import org.hyperskill.simplebankmanager.R
 import org.hyperskill.simplebankmanager.databinding.FragmentCalculateExchangeBinding
@@ -15,7 +17,7 @@ import org.hyperskill.simplebankmanager.databinding.FragmentCalculateExchangeBin
 class CalculateExchangeFragment : Fragment() {
 
     private val binding by lazy { FragmentCalculateExchangeBinding.inflate(layoutInflater) }
-    private val viewModel by viewModels<MainActivityViewModel>()
+    private val viewModel by activityViewModels<MainActivityViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,23 +43,65 @@ class CalculateExchangeFragment : Fragment() {
             calculateExchange()
         }
 
+        binding.calculateExchangeFromSpinner.onItemSelectedListener =
+            object : OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    val toSelectedIndex = binding.calculateExchangeToSpinner.selectedItemPosition
 
+                    if (position == toSelectedIndex) {
+                        Toast.makeText(
+                            context,
+                            "Cannot convert to same currency",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        val nextToSelectedIndex =
+                            if (toSelectedIndex + 1 > binding.calculateExchangeToSpinner.adapter.count) 0
+                            else toSelectedIndex + 1
+
+                        binding.calculateExchangeToSpinner.setSelection(nextToSelectedIndex)
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) = Unit
+            }
+
+        binding.calculateExchangeToSpinner.onItemSelectedListener =
+            object : OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    val fromSelectedIndex =
+                        binding.calculateExchangeFromSpinner.selectedItemPosition
+
+                    if (position == fromSelectedIndex) {
+                        Toast.makeText(
+                            context,
+                            "Cannot convert to same currency",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        val nextToSelectedIndex =
+                            if (position + 1 >= binding.calculateExchangeToSpinner.adapter.count) 0
+                            else position + 1
+
+                        binding.calculateExchangeToSpinner.setSelection(nextToSelectedIndex)
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) = Unit
+            }
     }
 
     private fun calculateExchange() = with(binding) {
-        val fromSelectedIndex = calculateExchangeFromSpinner.selectedItemPosition
-        val toSelectedIndex = calculateExchangeToSpinner.selectedItemPosition
-
-        if (fromSelectedIndex == toSelectedIndex) {
-            Toast.makeText(context, "Cannot convert to same currency", Toast.LENGTH_SHORT).show()
-            val nextToSelectedIndex =
-                if (toSelectedIndex + 1 > calculateExchangeToSpinner.adapter.count) 0
-                else toSelectedIndex + 1
-
-            calculateExchangeToSpinner.setSelection(nextToSelectedIndex)
-            return@with
-        }
-
         val exchangeAmount = calculateExchangeAmountEditText.text.toString().toDoubleOrNull()
         if (exchangeAmount == null) {
             Toast.makeText(context, "Enter amount", Toast.LENGTH_SHORT).show()
