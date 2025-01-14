@@ -2,12 +2,9 @@ package org.hyperskill.simplebankmanager
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.launch
 import org.hyperskill.simplebankmanager.domain.TransferFundsTransaction
 import org.hyperskill.simplebankmanager.domain.User
+import org.hyperskill.simplebankmanager.util.asResult
 
 class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
@@ -24,30 +21,25 @@ class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         ?: defaultMap
 
     private val balance: Double = savedStateHandle.get<Double>("balance") ?: DEFAULT_BALANCE
-    private val _uiEvent = Channel<UiEvent>()
 
-    val uiEvent = _uiEvent.receiveAsFlow()
     var currentUser: User? = null
         private set
 
     fun login(
         username: String,
         password: String,
-    ) {
-        viewModelScope.launch {
-            if (username != this@MainActivityViewModel.username ||
-                password != this@MainActivityViewModel.password
-            ) {
-                _uiEvent.send(UiEvent.ShowLoginResult(false))
-                return@launch
-            }
-            currentUser = User(
-                username = username,
-                password = password,
-                balance = balance
-            )
-            _uiEvent.send(UiEvent.ShowLoginResult(true))
+    ): Result<Unit> {
+        if (username != this@MainActivityViewModel.username ||
+            password != this@MainActivityViewModel.password
+        ) {
+            return false.asResult()
         }
+        currentUser = User(
+            username = username,
+            password = password,
+            balance = balance
+        )
+        return true.asResult()
     }
 
     fun transferFunds(transaction: TransferFundsTransaction) {
@@ -64,10 +56,6 @@ class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val rate = exchangeMap[fromUnit]?.get(toUnit)
         requireNotNull(rate) { "Exchange rate not found for $fromUnit to $toUnit" }
         return amount * rate
-    }
-
-    sealed interface UiEvent {
-        data class ShowLoginResult(val isSuccessful: Boolean) : UiEvent
     }
 
     companion object {

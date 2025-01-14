@@ -8,14 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import org.hyperskill.simplebankmanager.MainActivityViewModel
-import org.hyperskill.simplebankmanager.MainActivityViewModel.UiEvent
 import org.hyperskill.simplebankmanager.R
 import org.hyperskill.simplebankmanager.databinding.FragmentLoginBinding
-import org.hyperskill.simplebankmanager.util.launchOnLifecycleState
 
 class LoginFragment : Fragment() {
 
@@ -32,24 +27,12 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.loginButton.setOnClickListener {
-            viewModel.login(
+            val result = viewModel.login(
                 username = binding.loginUsername.text.toString(),
                 password = binding.loginPassword.text.toString()
             )
+            handleLoginResult(result.isSuccess)
         }
-
-        viewLifecycleOwner.launchOnLifecycleState {
-            collectAndHandleUiEvents()
-        }
-    }
-
-    private fun CoroutineScope.collectAndHandleUiEvents() {
-        viewModel.uiEvent.onEach { uiEvent ->
-            when (uiEvent) {
-                is UiEvent.ShowLoginResult -> handleLoginResult(uiEvent.isSuccessful)
-                // Handle other UI events if necessary
-            }
-        }.launchIn(this)
     }
 
     private fun handleLoginResult(isSuccessful: Boolean) {
