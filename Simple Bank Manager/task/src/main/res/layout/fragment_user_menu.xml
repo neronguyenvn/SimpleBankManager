@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingHorizontal="32dp">
+
+    <TextView
+        android:id="@+id/userMenuWelcomeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:letterSpacing="0.15"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="Welcome Lara" />
+
+    <Button
+        android:id="@+id/userMenuViewBalanceButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="view balance"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/userMenuTransferFundsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="transfer funds"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/userMenuExchangeCalculatorButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="calculate exchange"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/userMenuPayBillsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="pay bills"
+        tools:ignore="HardcodedText" />
+</LinearLayout>

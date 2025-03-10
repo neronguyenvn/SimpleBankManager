@@ -10,4 +10,4 @@ environment: Android
 content:
   - Simple Bank Manager
 mode: Study
-yaml_version: 1
+yaml_version: 2

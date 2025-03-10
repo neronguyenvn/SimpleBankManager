@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingHorizontal="32dp">
+
+    <EditText
+        android:id="@+id/transferFundsAccountEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Account number"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/transferFundsAmountEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter amount"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/transferFundsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="transfer"
+        tools:ignore="HardcodedText" />
+</LinearLayout>

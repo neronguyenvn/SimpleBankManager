@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_userMenuFragment"
+            app:destination="@id/userMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userMenuFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.UserMenuFragment"
+        android:label="UserMenuFragment">
+        <action
+            android:id="@+id/action_userMenuFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment" />
+        <action
+            android:id="@+id/action_userMenuFragment_to_transferFundsFragment"
+            app:destination="@id/transferFundsFragment" />
+        <action
+            android:id="@+id/action_userMenuFragment_to_calculateExchangeFragment"
+            app:destination="@id/calculateExchangeFragment" />
+        <action
+            android:id="@+id/action_userMenuFragment_to_payBillsFragment"
+            app:destination="@id/payBillsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.ViewBalanceFragment"
+        android:label="ViewBalanceFragment" />
+    <fragment
+        android:id="@+id/transferFundsFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.TransferFundsFragment"
+        android:label="TransferFundsFragment" />
+    <fragment
+        android:id="@+id/calculateExchangeFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.CalculateExchangeFragment"
+        android:label="CalculateExchangeFragment" />
+    <fragment
+        android:id="@+id/payBillsFragment"
+        android:name="org.hyperskill.simplebankmanager.presentation.PayBillsFragment"
+        android:label="PayBillsFragment" />
+</navigation>

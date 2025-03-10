@@ -4,23 +4,23 @@ hyperskill_project:
   is_template_based: false
   use_ide: true
   environment: android
-update_date: "Thu, 01 Jan 1970 00:00:00 UTC"
+update_date: "Mon, 10 Mar 2025 14:55:12 UTC"
 stages:
   - id: 1868
     step: 27105
-    is_completed: false
+    is_completed: true
   - id: 1869
     step: 27106
-    is_completed: false
+    is_completed: true
   - id: 1870
     step: 27107
-    is_completed: false
+    is_completed: true
   - id: 1871
     step: 27108
-    is_completed: false
+    is_completed: true
   - id: 1872
     step: 27109
-    is_completed: false
+    is_completed: true
 topics:
   0:
     - title: Data structures
@@ -137,6 +137,8 @@ topics:
       theory_id: 4472
     - title: Increment and decrement
       theory_id: 10776
+    - title: What is object-oriented programming
+      theory_id: 3614
     - title: Properties of basic types
       theory_id: 4455
     - title: Type conversion
@@ -165,6 +167,8 @@ topics:
       theory_id: 4659
     - title: Objects and their properties
       theory_id: 11233
+    - title: Declaring classes
+      theory_id: 6200
     - title: Ranges
       theory_id: 4633
     - title: When expression
@@ -175,24 +179,22 @@ topics:
       theory_id: 4637
     - title: Named arguments
       theory_id: 4640
-    - title: What is object-oriented programming
-      theory_id: 3614
-    - title: Declaring classes
-      theory_id: 6200
     - title: Constructors
       theory_id: 10740
     - title: Member functions
       theory_id: 6364
+    - title: Concept of design patterns
+      theory_id: 3611
     - title: Call stack
       theory_id: 11550
     - title: Scopes
       theory_id: 17116
     - title: Nested and inner classes
       theory_id: 14723
+    - title: Introduction to software architecture
+      theory_id: 15368
     - title: Interfaces
       theory_id: 9640
-    - title: Concept of design patterns
-      theory_id: 3611
     - title: Inheritance
       theory_id: 9844
     - title: Inheritance
@@ -207,8 +209,6 @@ topics:
       theory_id: 20218
     - title: Delegate
       theory_id: 21405
-    - title: Introduction to software architecture
-      theory_id: 15368
     - title: Object declarations
       theory_id: 10698
     - title: Interface Segregation Principle
