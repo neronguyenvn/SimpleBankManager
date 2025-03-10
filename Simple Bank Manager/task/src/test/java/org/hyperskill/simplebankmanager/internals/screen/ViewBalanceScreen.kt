@@ -20,12 +20,8 @@ class ViewBalanceScreen<T : Activity>(private val test: SimpleBankManagerUnitTes
     }
 
 
-    fun assertBalanceAmountDisplay(expectedBalance: String, caseDescription: String = "") {
+    fun assertBalanceAmountDisplay(expectedBalance : String, caseDescription: String = "") {
         val actualBalance = viewBalanceShowBalanceTextView.text.toString()
-        assertEquals(
-            "Wrong balance on viewBalanceAmountTextView, ${caseDescription}",
-            expectedBalance,
-            actualBalance
-        )
+        assertEquals("Wrong balance on viewBalanceAmountTextView, ${caseDescription}",expectedBalance,actualBalance)
     }
 }

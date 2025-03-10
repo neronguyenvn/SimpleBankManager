@@ -96,7 +96,7 @@ class CalculateExchangeScreen<T : Activity>(private val test: SimpleBankManagerU
         expectedConvertedAmount: Double
     ) = with(test) {
 
-        setSpinnerCurrencySelection(convertFromText, convertToText)
+        setSpinnerCurrencySelection(convertFromText,convertToText)
         calculateExchangeAmountEditText.setText(amountToConvert.toString())
 
         calculateExchangeButton.clickAndRun()
@@ -105,8 +105,7 @@ class CalculateExchangeScreen<T : Activity>(private val test: SimpleBankManagerU
         val toCurrencySymbol = currencySymbol(convertToText)
 
         val expectedAmountToConvertFormat = amountToConvert.asCurrencyFormat(fromCurrencySymbol)
-        val expectedConvertedAmountFormat =
-            expectedConvertedAmount.asCurrencyFormat(toCurrencySymbol)
+        val expectedConvertedAmountFormat = expectedConvertedAmount.asCurrencyFormat(toCurrencySymbol)
 
         calculateExchangeDisplayTextView.apply {
             val expectedText =
@@ -120,8 +119,7 @@ class CalculateExchangeScreen<T : Activity>(private val test: SimpleBankManagerU
     }
 
     fun checkForErrorMessages(
-        isEmptyAmount: Boolean = false, isSameCurrencySelected: Boolean = false
-    ) = with(test) {
+        isEmptyAmount: Boolean = false, isSameCurrencySelected: Boolean = false) = with(test) {
 
         if (isEmptyAmount) {
             calculateExchangeButton.clickAndRun()
@@ -137,10 +135,7 @@ class CalculateExchangeScreen<T : Activity>(private val test: SimpleBankManagerU
             val countFrom = calculateExchangeConvertFromSpinner.adapter.count
             val countTo = calculateExchangeConvertToSpinner.adapter.count
 
-            assertTrue(
-                "Both spinners at CalculateExchange should have same length",
-                countFrom == countTo
-            )
+            assertTrue("Both spinners at CalculateExchange should have same length", countFrom == countTo)
 
             for (i in 0 until countFrom) {
                 calculateExchangeConvertFromSpinner.setSelection(i)
@@ -149,7 +144,7 @@ class CalculateExchangeScreen<T : Activity>(private val test: SimpleBankManagerU
 
                 try {
                     calculateExchangeButton.clickAndRun()
-                } catch (e: Exception) {
+                } catch (e : Exception) {
                     throw AssertionError(
                         "Exception, when same currency selected at CalculateExchange " +
                                 "test failed on activity execution with $e", e
@@ -188,7 +183,7 @@ class CalculateExchangeScreen<T : Activity>(private val test: SimpleBankManagerU
     }
 
     fun currencySymbol(countryCode: String): String {
-        return when (countryCode) {
+        return when(countryCode) {
             "EUR" -> "€"
             "GBP" -> "£"
             "USD" -> "$"

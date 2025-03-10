@@ -7,7 +7,7 @@ import android.widget.EditText
 import org.hyperskill.simplebankmanager.internals.SimpleBankManagerUnitTest
 
 // version 1.4
-class TransferFundsScreen<T : Activity>(private val test: SimpleBankManagerUnitTest<T>) {
+class TransferFundsScreen<T : Activity>(private val test : SimpleBankManagerUnitTest<T>) {
 
     val transferFundsAccountEditText = with(test) {
         val idString = "transferFundsAccountEditText"

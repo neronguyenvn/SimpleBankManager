@@ -13,7 +13,7 @@ import org.robolectric.RobolectricTestRunner
 // version 1.4
 @RunWith(RobolectricTestRunner::class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class Stage2UnitTest : SimpleBankManagerUnitTest<MainActivity>(MainActivity::class.java) {
+class Stage2UnitTest : SimpleBankManagerUnitTest<MainActivity>(MainActivity::class.java){
 
 
     @Test

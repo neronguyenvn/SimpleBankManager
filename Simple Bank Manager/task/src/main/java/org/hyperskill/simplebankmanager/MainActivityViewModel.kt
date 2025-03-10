@@ -22,6 +22,10 @@ class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val balance: Double = savedStateHandle.get<Double>("balance") ?: DEFAULT_BALANCE
 
+    private val billInfoMap = savedStateHandle
+        .get<Map<String, Triple<String, String, Double>>>("billInfo")
+        ?: defaultBillInfoMap
+
     var currentUser: User? = null
         private set
 
@@ -58,6 +62,26 @@ class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return amount * rate
     }
 
+    fun getBillInfo(code: String): Triple<String, String, Double>? {
+        return billInfoMap[code]
+    }
+
+    fun payBill(code: String): Result<String> {
+        val billInfo = billInfoMap[code]
+        requireNotNull(billInfo) {
+            return Result.failure(Exception("Bill info not found for code $code"))
+        }
+
+        if (billInfo.third > currentUser!!.balance) {
+            return Result.failure(Exception("Not enough funds"))
+        }
+
+        currentUser = currentUser!!.copy(
+            balance = currentUser!!.balance - billInfo.third
+        )
+        return Result.success("Payment for bill ${billInfo.first}, was successful")
+    }
+
     companion object {
         private const val DEFAULT_USERNAME = "Lara"
         private const val DEFAULT_PASSWORD = "1234"
@@ -76,6 +100,12 @@ class MainActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 "EUR" to 0.5,
                 "GBP" to 0.25
             )
+        )
+
+        private val defaultBillInfoMap = mapOf(
+            "ELEC" to Triple("Electricity", "ELEC", 45.0),
+            "GAS" to Triple("Gas", "GAS", 20.0),
+            "WTR" to Triple("Water", "WTR", 25.5)
         )
     }
 }

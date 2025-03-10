@@ -40,12 +40,19 @@ class UserMenuFragment : Fragment() {
             val destination = R.id.action_userMenuFragment_to_viewBalanceFragment
             findNavController().navigate(destination)
         }
+
         userMenuTransferFundsButton.setOnClickListener {
             val destination = R.id.action_userMenuFragment_to_transferFundsFragment
             findNavController().navigate(destination)
         }
+
         userMenuExchangeCalculatorButton.setOnClickListener {
             val destination = R.id.action_userMenuFragment_to_calculateExchangeFragment
+            findNavController().navigate(destination)
+        }
+
+        userMenuPayBillsButton.setOnClickListener {
+            val destination = R.id.action_userMenuFragment_to_payBillsFragment
             findNavController().navigate(destination)
         }
     }

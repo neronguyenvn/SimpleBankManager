@@ -75,6 +75,67 @@ files:
   - name: src/test/java/org/hyperskill/simplebankmanager/Stage5UnitTest.kt
     visible: false
     learner_created: false
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/ViewBalanceFragment.kt
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/UserMenuFragment.kt
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/CalculateExchangeFragment.kt
+    visible: true
+    learner_created: true
+  - name: src/main/res/layout/fragment_calculate_exchange.xml
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/util/ResultExts.kt
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/MainActivityViewModel.kt
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/LoginFragment.kt
+    visible: true
+    learner_created: true
+  - name: src/main/res/navigation/nav_graph.xml
+    visible: true
+    learner_created: true
+  - name: src/main/res/layout/fragment_transfer_funds.xml
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/domain/ValidateTransferFundsTransactionUseCase.kt
+    visible: true
+    learner_created: true
+  - name: src/main/res/layout/fragment_user_menu.xml
+    visible: true
+    learner_created: true
+  - name: src/main/res/layout/fragment_view_balance.xml
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/TransferFundsFragment.kt
+    visible: true
+    learner_created: true
+  - name: src/main/res/layout/fragment_login.xml
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/util/ContextExts.kt
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/domain/TransferFundsTransaction.kt
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/domain/User.kt
+    visible: true
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/presentation/PayBillsFragment.kt
+    visible: true
+    learner_created: true
+  - name: src/main/res/layout/fragment_pay_bills.xml
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/27109#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">Hyperskill</a>
+    to continue learning.
+  time: "Mon, 10 Mar 2025 16:41:24 UTC"
 record: -1

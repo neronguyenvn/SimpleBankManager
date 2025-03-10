@@ -8,6 +8,7 @@ import org.hyperskill.simplebankmanager.internals.screen.CalculateExchangeScreen
 import org.hyperskill.simplebankmanager.internals.screen.CalculateExchangeScreen.Companion.USD
 import org.hyperskill.simplebankmanager.internals.screen.LoginScreen
 import org.hyperskill.simplebankmanager.internals.screen.UserMenuScreen
+import org.junit.Assert.assertNotEquals
 import org.junit.Assert.assertTrue
 import org.junit.FixMethodOrder
 import org.junit.Test
@@ -163,9 +164,8 @@ class Stage4UnitTest : SimpleBankManagerUnitTest<MainActivity>(MainActivity::cla
                 setSpinnerCurrencySelection(USD, USD)
                 val convertFrom = calculateExchangeConvertFromSpinner.selectedItem
                 val convertTo = calculateExchangeConvertToSpinner.selectedItem
-                assertTrue(
-                    "Currencies for \"convert from\"=$convertFrom and \"convert to\"=$convertTo"
-                            + " should not be selected as equal",
+                assertTrue("Currencies for \"convert from\"=$convertFrom and \"convert to\"=$convertTo"
+                        + " should not be selected as equal",
                     convertFrom != convertTo
                 )
             }

@@ -1,5 +1,6 @@
 package org.hyperskill.simplebankmanager.util
 
+import android.app.AlertDialog
 import android.content.Context
 import android.widget.Toast
 import org.hyperskill.simplebankmanager.R
@@ -16,3 +17,22 @@ fun Context.getFormattedCurrencyText(unit: String, amount: Double): String? {
         else -> null // Return null for unsupported units
     }
 }
+
+fun Context.showAlertDialog(
+    title: String,
+    message: String,
+    positiveButtonText: String,
+    negativeButtonText: String? = null,
+    onPositiveButtonClick: (() -> Unit)? = null
+) {
+    AlertDialog.Builder(this).apply {
+        setTitle(title)
+        setMessage(message)
+        setPositiveButton(positiveButtonText) { _, _ ->
+            onPositiveButtonClick?.invoke()
+        }
+        setNegativeButton(negativeButtonText) { _, _ -> }
+        show()
+    }
+}
+
